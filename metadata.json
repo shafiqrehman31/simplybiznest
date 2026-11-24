@@ -1,0 +1,6 @@
+{
+  "name": "simplybiznest.com — UAE Company Formation & Advisory",
+  "description": "Full-stack UAE company formation, instant setup cost calculator, live application tracker, banking advisory, and AI advisor for simplybiznest.com.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

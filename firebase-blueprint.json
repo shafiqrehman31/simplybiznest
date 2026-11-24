@@ -1,0 +1,290 @@
+{
+  "entities": {
+    "AdminUser": {
+      "title": "AdminUser",
+      "description": "Authorized administrator record for role-based access control.",
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string",
+          "format": "email",
+          "maxLength": 160,
+          "description": "Verified administrator email address."
+        },
+        "role": {
+          "type": "string",
+          "enum": ["super_admin", "advisor_admin"],
+          "maxLength": 32,
+          "description": "Administrator privilege level."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server creation timestamp."
+        }
+      },
+      "required": ["email", "role", "createdAt"]
+    },
+    "SiteConfig": {
+      "title": "SiteConfig",
+      "description": "Public CMS branding, contact, pricing, and hero configuration.",
+      "type": "object",
+      "properties": {
+        "siteName": { "type": "string", "maxLength": 100 },
+        "headerLogoUrl": { "type": "string", "maxLength": 500 },
+        "footerLogoUrl": { "type": "string", "maxLength": 500 },
+        "faviconUrl": { "type": "string", "maxLength": 500 },
+        "heroHeadline": { "type": "string", "maxLength": 240 },
+        "heroSubheadline": { "type": "string", "maxLength": 600 },
+        "whatsappNumber": { "type": "string", "maxLength": 30 },
+        "contactEmail": { "type": "string", "format": "email", "maxLength": 120 },
+        "promoNotice": { "type": "string", "maxLength": 240 },
+        "zeroVisaPriceAed": { "type": "number" },
+        "oneVisaPriceAed": { "type": "number" },
+        "mainlandPriceAed": { "type": "number" },
+        "socialLinkedin": { "type": "string", "maxLength": 250 },
+        "socialInstagram": { "type": "string", "maxLength": 250 },
+        "socialFacebook": { "type": "string", "maxLength": 250 },
+        "socialX": { "type": "string", "maxLength": 250 },
+        "socialYoutube": { "type": "string", "maxLength": 250 },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "siteName",
+        "headerLogoUrl",
+        "footerLogoUrl",
+        "faviconUrl",
+        "heroHeadline",
+        "heroSubheadline",
+        "whatsappNumber",
+        "contactEmail",
+        "promoNotice",
+        "zeroVisaPriceAed",
+        "oneVisaPriceAed",
+        "mainlandPriceAed",
+        "updatedAt"
+      ]
+    },
+    "NavMenuItem": {
+      "title": "NavMenuItem",
+      "description": "Dynamic header navigation item and associated subpage content.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "maxLength": 60 },
+        "slug": { "type": "string", "pattern": "^[a-z0-9\\-]+$", "maxLength": 60 },
+        "order": { "type": "integer" },
+        "pageSubtitle": { "type": "string", "maxLength": 240 },
+        "pageContent": { "type": "string", "maxLength": 12000 },
+        "visible": { "type": "boolean" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "slug", "order", "pageSubtitle", "pageContent", "visible", "updatedAt"]
+    },
+    "BlogPost": {
+      "title": "BlogPost",
+      "description": "Regulatory guide or editorial article for simplybiznest.com.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "maxLength": 180 },
+        "slug": { "type": "string", "pattern": "^[a-z0-9\\-]+$", "maxLength": 100 },
+        "category": { "type": "string", "maxLength": 60 },
+        "readTime": { "type": "string", "maxLength": 30 },
+        "excerpt": { "type": "string", "maxLength": 500 },
+        "content": { "type": "string", "maxLength": 25000 },
+        "author": { "type": "string", "maxLength": 80 },
+        "publishedAt": { "type": "string", "maxLength": 40 },
+        "visible": { "type": "boolean" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "title",
+        "slug",
+        "category",
+        "readTime",
+        "excerpt",
+        "content",
+        "author",
+        "publishedAt",
+        "visible",
+        "updatedAt"
+      ]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Private formation quote & lead record containing client PII.",
+      "type": "object",
+      "properties": {
+        "trackingCode": { "type": "string", "pattern": "^SBN-[A-Z0-9]{6,10}$", "maxLength": 20 },
+        "fullName": { "type": "string", "maxLength": 120 },
+        "countryCode": { "type": "string", "maxLength": 12 },
+        "whatsapp": { "type": "string", "maxLength": 32 },
+        "email": { "type": "string", "maxLength": 160 },
+        "jurisdiction": { "type": "string", "enum": ["Free Zone", "Mainland"], "maxLength": 24 },
+        "activity": { "type": "string", "maxLength": 140 },
+        "visaCount": { "type": "integer" },
+        "estimatedAed": { "type": "number" },
+        "estimatedUsd": { "type": "number" },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Quote Locked",
+            "Passport KYC",
+            "Trade Name",
+            "E-License Issued",
+            "Emirates ID & Bank",
+            "Active Company"
+          ],
+          "maxLength": 40
+        },
+        "pipedriveStatus": {
+          "type": "string",
+          "enum": ["pending", "synced", "pending_config", "error"],
+          "maxLength": 24
+        },
+        "pipedriveDealId": { "type": "string", "maxLength": 64 },
+        "source": { "type": "string", "maxLength": 40 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "trackingCode",
+        "fullName",
+        "countryCode",
+        "whatsapp",
+        "email",
+        "jurisdiction",
+        "activity",
+        "visaCount",
+        "estimatedAed",
+        "estimatedUsd",
+        "status",
+        "pipedriveStatus",
+        "pipedriveDealId",
+        "source",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "OrderStatus": {
+      "title": "OrderStatus",
+      "description": "Public non-PII milestone projection keyed by exact tracking code.",
+      "type": "object",
+      "properties": {
+        "trackingCode": { "type": "string", "pattern": "^SBN-[A-Z0-9]{6,10}$", "maxLength": 20 },
+        "jurisdiction": { "type": "string", "enum": ["Free Zone", "Mainland"], "maxLength": 24 },
+        "activity": { "type": "string", "maxLength": 140 },
+        "visaCount": { "type": "integer" },
+        "estimatedAed": { "type": "number" },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Quote Locked",
+            "Passport KYC",
+            "Trade Name",
+            "E-License Issued",
+            "Emirates ID & Bank",
+            "Active Company"
+          ],
+          "maxLength": 40
+        },
+        "milestoneIndex": { "type": "integer" },
+        "note": { "type": "string", "maxLength": 240 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": [
+        "trackingCode",
+        "jurisdiction",
+        "activity",
+        "visaCount",
+        "estimatedAed",
+        "status",
+        "milestoneIndex",
+        "note",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "InventorySlot": {
+      "title": "InventorySlot",
+      "description": "License, visa, or corporate banking slot pool inventory.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "maxLength": 120 },
+        "category": { "type": "string", "enum": ["License Pool", "Visa Quota", "Banking Desk"], "maxLength": 32 },
+        "jurisdiction": { "type": "string", "maxLength": 60 },
+        "availableSlots": { "type": "integer" },
+        "totalSlots": { "type": "integer" },
+        "lowThreshold": { "type": "integer" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "category", "jurisdiction", "availableSlots", "totalSlots", "lowThreshold", "updatedAt"]
+    },
+    "InventoryAlert": {
+      "title": "InventoryAlert",
+      "description": "Low-threshold inventory alert triggered when slot capacity drops.",
+      "type": "object",
+      "properties": {
+        "inventoryId": { "type": "string", "maxLength": 128 },
+        "slotName": { "type": "string", "maxLength": 120 },
+        "currentSlots": { "type": "integer" },
+        "threshold": { "type": "integer" },
+        "severity": { "type": "string", "enum": ["warning", "critical"], "maxLength": 20 },
+        "resolved": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["inventoryId", "slotName", "currentSlots", "threshold", "severity", "resolved", "createdAt", "updatedAt"]
+    },
+    "ReportExport": {
+      "title": "ReportExport",
+      "description": "Immutable audit log of admin CSV and pipeline report exports.",
+      "type": "object",
+      "properties": {
+        "exportedBy": { "type": "string", "maxLength": 160 },
+        "reportType": { "type": "string", "maxLength": 80 },
+        "rowCount": { "type": "integer" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["exportedBy", "reportType", "rowCount", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/admins/{uid}": {
+      "schema": { "$ref": "#/entities/AdminUser" },
+      "description": "Verified administrator role registry."
+    },
+    "/siteConfig/{configId}": {
+      "schema": { "$ref": "#/entities/SiteConfig" },
+      "description": "Public CMS configuration document (e.g. main)."
+    },
+    "/navMenuItems/{itemId}": {
+      "schema": { "$ref": "#/entities/NavMenuItem" },
+      "description": "CMS-backed header navigation items and dynamic pages."
+    },
+    "/blogPosts/{postId}": {
+      "schema": { "$ref": "#/entities/BlogPost" },
+      "description": "Regulatory guides and editorial articles."
+    },
+    "/orders/{trackingCode}": {
+      "schema": { "$ref": "#/entities/Order" },
+      "description": "PII-isolated client orders and lead pipeline."
+    },
+    "/orderStatus/{trackingCode}": {
+      "schema": { "$ref": "#/entities/OrderStatus" },
+      "description": "Non-PII public application progress milestone status."
+    },
+    "/inventory/{slotId}": {
+      "schema": { "$ref": "#/entities/InventorySlot" },
+      "description": "License, visa, and banking slot capacity pools."
+    },
+    "/alerts/{alertId}": {
+      "schema": { "$ref": "#/entities/InventoryAlert" },
+      "description": "Low-threshold inventory capacity alerts."
+    },
+    "/reportExports/{exportId}": {
+      "schema": { "$ref": "#/entities/ReportExport" },
+      "description": "Immutable export audit log."
+    }
+  }
+}
