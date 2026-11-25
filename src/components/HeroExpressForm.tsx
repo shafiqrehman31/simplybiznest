@@ -185,19 +185,27 @@ export function HeroExpressForm({
             appUrl: window.location.origin,
           }),
         });
-        const data = (await res.json()) as {
-          delivered?: boolean;
-          message?: string;
-          error?: string;
-        };
+        const rawText = await res.text();
+        let data: { delivered?: boolean; message?: string; error?: string } = {};
+        try {
+          data = JSON.parse(rawText) as {
+            delivered?: boolean;
+            message?: string;
+            error?: string;
+          };
+        } catch {
+          emailNotice = `Email endpoint returned HTTP ${res.status} without JSON. Make sure the Node server (npm run dev / npm start) is running, not static hosting alone.`;
+        }
         emailDelivered = Boolean(data.delivered);
         if (data.message) {
           emailNotice = data.message;
         } else if (data.error) {
           emailNotice = `Email delivery failed: ${data.error}`;
+        } else if (!res.ok && !emailNotice.includes('HTTP')) {
+          emailNotice = `Email delivery failed with HTTP ${res.status}.`;
         }
-      } catch {
-        // Non-blocking fallback notice remains active
+      } catch (fetchErr) {
+        emailNotice = `Could not reach /api/send-quote-email (${fetchErr instanceof Error ? fetchErr.message : 'network error'}).`;
       }
 
       setConfirmation({
