@@ -6,9 +6,9 @@ import { createServer as createViteServer } from 'vite';
 import { generateProposalBookletPdf } from './server/booklet.ts';
 import { sendQuoteConfirmationEmail } from './server/email.ts';
 
-dotenv.config();
+dotenv.config({ path: path.resolve(process.cwd(), '.env') });
 
-const PORT =  Number(process.env.PORT) || 3000;
+const PORT = Number(process.env.PORT) || 3000;
 
 function getGeminiClient(): GoogleGenAI | null {
   const apiKey = process.env.GEMINI_API_KEY;
@@ -333,7 +333,12 @@ If the user mentions a business type, jurisdiction, or visa count, include a str
   }
 
   app.listen(PORT, '0.0.0.0', () => {
-    console.log(`simplybiznest.com server running on http://0.0.0.0:${PORT}`);
+    const emailMode = process.env.RESEND_API_KEY?.trim()
+      ? 'Resend HTTPS API'
+      : process.env.SMTP_HOST?.trim() && process.env.SMTP_USER?.trim() && process.env.SMTP_PASS?.trim()
+        ? `SMTP (${process.env.SMTP_HOST.trim()}:${process.env.SMTP_PORT || 587})`
+        : 'Preview only (RESEND_API_KEY / SMTP_* not set)';
+    console.log(`simplybiznest.com server running on http://0.0.0.0:${PORT} | Email: ${emailMode}`);
   });
 }
 
