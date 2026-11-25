@@ -435,7 +435,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="bg-white border border-[#E2E8F0] rounded-xl p-5">
                 <p className="text-xs font-bold uppercase tracking-wider text-[#475569]">
-                  Total Quotes Locked
+                  Total Leads &amp; Orders
                 </p>
                 <p className="font-mono text-2xl font-bold text-[#0C1A38] mt-2 tabular-nums">
                   {orders.length}

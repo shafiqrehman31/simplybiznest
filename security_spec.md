@@ -17,6 +17,6 @@
 7. **Self-assigned Admin Privilege**: Non-admin user creating `/admins/{uid}` -> DENIED.
 8. **ID Poisoning**: Document ID exceeding 128 chars or containing invalid symbols (`../../bad`) -> DENIED.
 9. **Client Timestamp Forgery**: Creating `orders/SBN-ABC123` with backdated `createdAt` != `request.time` -> DENIED.
-10. **Status Shortcutting on Public Create**: Public create setting `status: "Active Company"` instead of `"Quote Locked"` -> DENIED.
+10. **Status Shortcutting on Public Create**: Public create setting `status: "Active Company"` instead of `"Form Submitted"` -> DENIED.
 11. **Public Write to CMS (`siteConfig`, `navMenuItems`, `blogPosts`)**: Non-admin attempting `setDoc` on `siteConfig/main` -> DENIED.
 12. **Audit Log Tampering**: Even an admin attempting `deleteDoc` or `updateDoc` on `reportExports/{id}` -> DENIED.

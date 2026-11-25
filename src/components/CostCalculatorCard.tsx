@@ -68,11 +68,12 @@ export function CostCalculatorCard({
 
     setSubmitting(true);
     try {
+      const cleanEmail = email.trim();
       const code = await submitFormationLead({
         fullName: cleanName,
         countryCode,
         whatsapp: cleanPhone,
-        email: email.trim(),
+        email: cleanEmail,
         jurisdiction,
         activity,
         visaCount,
@@ -80,6 +81,25 @@ export function CostCalculatorCard({
         estimatedUsd: breakdown.totalUsd,
         source: 'calculator',
       });
+      if (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(cleanEmail)) {
+        fetch('/api/send-quote-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            trackingCode: code,
+            fullName: cleanName,
+            email: cleanEmail,
+            phone: `${countryCode} ${cleanPhone}`,
+            setupLabel: `${jurisdiction} (${visaCount} ${visaCount === 1 ? 'Visa' : 'Visas'})`,
+            jurisdiction,
+            activity,
+            visaCount,
+            estimatedAed: breakdown.totalAed,
+            estimatedUsd: breakdown.totalUsd,
+            appUrl: window.location.origin,
+          }),
+        }).catch(() => {});
+      }
       setCreatedCode(code);
       setShowLeadModal(false);
       setFullName('');
@@ -267,7 +287,7 @@ export function CostCalculatorCard({
             <div className="flex items-center justify-between gap-2">
               <div className="flex items-center gap-2 text-[#0C1A38] font-bold text-sm">
                 <ShieldCheck className="w-4 h-4 text-[#1F65ED]" />
-                <span>Quote Locked Successfully</span>
+                <span>Form Submitted — Tracking Ready</span>
               </div>
               <button
                 type="button"

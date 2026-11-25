@@ -1,6 +1,7 @@
 export type Jurisdiction = 'Free Zone' | 'Mainland';
 
 export type OrderMilestoneStatus =
+  | 'Form Submitted'
   | 'Quote Locked'
   | 'Passport KYC'
   | 'Trade Name'
@@ -9,6 +10,7 @@ export type OrderMilestoneStatus =
   | 'Active Company';
 
 export const ORDER_MILESTONES: OrderMilestoneStatus[] = [
+  'Form Submitted',
   'Quote Locked',
   'Passport KYC',
   'Trade Name',

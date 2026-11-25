@@ -4,10 +4,11 @@ import express, { type Request, type Response } from 'express';
 import path from 'path';
 import { createServer as createViteServer } from 'vite';
 import { generateProposalBookletPdf } from './server/booklet.ts';
+import { sendQuoteConfirmationEmail } from './server/email.ts';
 
 dotenv.config();
 
-const PORT = Number(process.env.PORT) || 3000;
+const PORT =  Number(process.env.PORT) || 3000;
 
 function getGeminiClient(): GoogleGenAI | null {
   const apiKey = process.env.GEMINI_API_KEY;
@@ -258,7 +259,65 @@ If the user mentions a business type, jurisdiction, or visa count, include a str
     }
   });
 
-  // 4. Vite Dev Middleware vs. Production Static Serving
+  // 4. Send Branded Quote Confirmation Email (/api/send-quote-email)
+  app.post('/api/send-quote-email', async (req: Request, res: Response) => {
+    const trackingCode =
+      typeof req.body?.trackingCode === 'string' ? req.body.trackingCode.trim().toUpperCase() : '';
+    const fullName =
+      typeof req.body?.fullName === 'string' ? req.body.fullName.trim().slice(0, 120) : '';
+    const email = typeof req.body?.email === 'string' ? req.body.email.trim().slice(0, 160) : '';
+    const phone = typeof req.body?.phone === 'string' ? req.body.phone.trim().slice(0, 40) : '';
+    const setupLabel =
+      typeof req.body?.setupLabel === 'string'
+        ? req.body.setupLabel.trim().slice(0, 140)
+        : 'UAE Company Formation';
+    const jurisdiction = req.body?.jurisdiction === 'Mainland' ? 'Mainland' : 'Free Zone';
+    const activity =
+      typeof req.body?.activity === 'string'
+        ? req.body.activity.trim().slice(0, 140)
+        : 'Management & Strategy Consultancy';
+    const visaCount = Math.max(0, Math.min(10, Math.round(Number(req.body?.visaCount ?? 0))));
+    const estimatedAed = Math.max(1000, Math.min(500000, Number(req.body?.estimatedAed ?? 0)));
+    const estimatedUsd = Math.max(250, Math.min(200000, Number(req.body?.estimatedUsd ?? 0)));
+    const year2RenewalAed = Number(req.body?.year2RenewalAed ?? 0) || undefined;
+    const appUrl = typeof req.body?.appUrl === 'string' ? req.body.appUrl.trim() : undefined;
+
+    if (!/^SBN-[A-Z0-9]{6,10}$/.test(trackingCode) || !fullName) {
+      res.status(400).json({ error: 'Valid trackingCode and fullName are required.' });
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      res.status(400).json({ error: 'Valid email address is required.' });
+      return;
+    }
+
+    try {
+      const result = await sendQuoteConfirmationEmail({
+        trackingCode,
+        fullName,
+        email,
+        phone,
+        setupLabel,
+        jurisdiction,
+        activity,
+        visaCount,
+        estimatedAed,
+        estimatedUsd,
+        year2RenewalAed,
+        appUrl,
+      });
+      res.json(result);
+    } catch (error) {
+      console.error('Quote email delivery error:', error);
+      res.status(502).json({
+        delivered: false,
+        mode: 'error',
+        error: error instanceof Error ? error.message : 'Unable to send confirmation email.',
+      });
+    }
+  });
+
+  // 5. Vite Dev Middleware vs. Production Static Serving
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
       server: { middlewareMode: true },

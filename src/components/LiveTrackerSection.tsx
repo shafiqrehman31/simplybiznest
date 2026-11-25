@@ -103,7 +103,7 @@ export function LiveTrackerSection({ externalCode }: LiveTrackerSectionProps) {
             <div className="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-[#E2E8F0]">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-[#475569]">
-                  {statusRecord ? 'Active Mandate Reference' : '6-Stage Formation Pipeline'}
+                  {statusRecord ? 'Active Mandate Reference' : '7-Stage Formation Pipeline'}
                 </span>
                 <p className="font-mono text-lg font-bold text-[#0C1A38] mt-0.5 tabular-nums">
                   {statusRecord ? statusRecord.trackingCode : searchedCode || 'SBN-PREVIEW'}

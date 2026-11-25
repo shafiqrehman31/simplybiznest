@@ -127,6 +127,7 @@
         "status": {
           "type": "string",
           "enum": [
+            "Form Submitted",
             "Quote Locked",
             "Passport KYC",
             "Trade Name",
@@ -178,6 +179,7 @@
         "status": {
           "type": "string",
           "enum": [
+            "Form Submitted",
             "Quote Locked",
             "Passport KYC",
             "Trade Name",
