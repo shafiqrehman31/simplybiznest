@@ -1,7 +1,5 @@
 import { FileDown, Mail, MessageCircle } from 'lucide-react';
-import { useState } from 'react';
 import { DEFAULT_FOOTER_LOGO, DEFAULT_SITE_CONFIG } from '../data/defaults';
-import { downloadBookletPdf } from '../lib/downloadPdf';
 import { NavMenuItem, SiteConfig } from '../types';
 
 function sanitizeExternalUrl(raw?: string): string | null {
@@ -20,27 +18,13 @@ interface FooterProps {
 }
 
 export function Footer({ config, navItems, onNavigate, onJumpToSection }: FooterProps) {
-  const [pdfDownloading, setPdfDownloading] = useState(false);
-
   const visibleNav = navItems
     .filter((item) => item.visible)
     .sort((a, b) => a.order - b.order);
 
   const waUrl = `https://wa.me/${config.whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
-    'Hello simplybiznest.com advisory desk, I have a question about UAE company formation.'
+    'Hi SimplyBizNest team, I would like a UAE company formation consultation.'
   )}`;
-
-  const pdfHref = `/api/booklet.pdf?zeroVisa=${config.zeroVisaPriceAed}&oneVisa=${config.oneVisaPriceAed}&mainland=${config.mainlandPriceAed}`;
-
-  const handleDownloadPdf = async () => {
-    if (pdfDownloading) return;
-    setPdfDownloading(true);
-    try {
-      await downloadBookletPdf(pdfHref);
-    } finally {
-      setPdfDownloading(false);
-    }
-  };
 
   const rawSocialChannels = [
     {
@@ -81,10 +65,10 @@ export function Footer({ config, navItems, onNavigate, onJumpToSection }: Footer
     : rawSocialChannels.map((ch) => ({ ...ch, url: ch.fallbackUrl }));
 
   return (
-    <footer className="bg-[#0b1f4b] text-white border-t border-[#2863e8]/30 pb-20 md:pb-0">
+    <footer className="bg-[#0C1A38] text-white border-t border-[#1F65ED]/30 pb-20 md:pb-0">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Column 1: Brand Lockup */}
+          {/* Column 1: Brand Lockup & Social Icons */}
           <div>
             <img
               src={config.footerLogoUrl || DEFAULT_FOOTER_LOGO}
@@ -93,8 +77,8 @@ export function Footer({ config, navItems, onNavigate, onJumpToSection }: Footer
               className="h-24 sm:h-28 w-auto max-w-[260px] object-contain"
             />
             <p className="mt-4 text-sm text-[#CBD5E1] leading-relaxed">
-              Structured UAE Free Zone and Dubai Mainland DET company formation, transparent AED
-              cost modeling, and corporate banking KYC preparation.
+              SimplyBizNest VIP Express Desk for UAE Free Zone and Dubai Mainland DET company
+              formation, transparent government-vs-service fee splits, and KYC banking readiness.
             </p>
             <ul className="mt-5 flex flex-wrap items-center gap-2.5" aria-label="Social Media Channels">
               {activeSocials.map((ch) => (
@@ -105,7 +89,7 @@ export function Footer({ config, navItems, onNavigate, onJumpToSection }: Footer
                     rel="noopener noreferrer"
                     aria-label={`${config.siteName} on ${ch.label}`}
                     title={ch.label}
-                    className="w-9 h-9 rounded-lg border border-white/15 bg-white/5 hover:bg-[#2863e8] hover:border-[#2863e8] text-[#CBD5E1] hover:text-white inline-flex items-center justify-center transition-colors"
+                    className="w-9 h-9 rounded-lg border border-white/15 bg-white/5 hover:bg-[#1F65ED] hover:border-[#1F65ED] text-[#CBD5E1] hover:text-white inline-flex items-center justify-center transition-colors"
                   >
                     {ch.key === 'linkedin' && (
                       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -160,19 +144,28 @@ export function Footer({ config, navItems, onNavigate, onJumpToSection }: Footer
             </ul>
           </div>
 
-          {/* Column 3: Formation Tools */}
+          {/* Column 3: Express Tools */}
           <div>
             <h3 className="text-xs font-bold uppercase tracking-wider text-[#93C5FD] mb-4">
-              Formation Tools
+              VIP Express Tools
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <button
                   type="button"
-                  onClick={() => onJumpToSection('cost-calculator')}
+                  onClick={() => onJumpToSection('hero-express-form')}
                   className="text-[#CBD5E1] hover:text-white transition-colors"
                 >
-                  Instant Cost Calculator
+                  Instant Quote Form
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => onJumpToSection('pricing-breakdown')}
+                  className="text-[#CBD5E1] hover:text-white transition-colors"
+                >
+                  Govt vs. Service Fee Split
                 </button>
               </li>
               <li>
@@ -185,18 +178,14 @@ export function Footer({ config, navItems, onNavigate, onJumpToSection }: Footer
                 </button>
               </li>
               <li>
-                <a
-                  href={pdfHref}
-                  download="simplybiznest-booklet.pdf"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    void handleDownloadPdf();
-                  }}
+                <button
+                  type="button"
+                  onClick={() => onJumpToSection('pre-footer-pdf')}
                   className="inline-flex items-center gap-1.5 text-white font-medium hover:text-[#93C5FD] transition-colors"
                 >
-                  <FileDown className="w-4 h-4 text-[#2863e8]" />
-                  <span>{pdfDownloading ? 'Preparing PDF...' : 'Proposal Booklet (PDF)'}</span>
-                </a>
+                  <FileDown className="w-4 h-4 text-[#1F65ED]" />
+                  <span>2026 UAE Setup Guide (PDF)</span>
+                </button>
               </li>
             </ul>
           </div>
@@ -211,10 +200,10 @@ export function Footer({ config, navItems, onNavigate, onJumpToSection }: Footer
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#2863e8] hover:bg-[#1e50c4] text-white text-sm font-medium transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#1F65ED] hover:bg-[#1750c4] text-white text-sm font-bold transition-colors"
               >
                 <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp Advisory Desk</span>
+                <span>Talk to an Expert</span>
               </a>
               <div>
                 <a
@@ -228,7 +217,7 @@ export function Footer({ config, navItems, onNavigate, onJumpToSection }: Footer
             </div>
 
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#93C5FD] mt-6 mb-2.5">
-              Legal & Compliance
+              Legal &amp; Compliance
             </h4>
             <ul className="grid grid-cols-2 gap-y-2 gap-x-4 text-xs text-[#CBD5E1]">
               <li>
@@ -271,21 +260,30 @@ export function Footer({ config, navItems, onNavigate, onJumpToSection }: Footer
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#94A3B8]">
-          <p>© {new Date().getFullYear()} {config.siteName}. All rights reserved.</p>
-          <p>Digital UAE Corporate Advisory · {config.contactEmail}</p>
+        <div className="mt-10 pt-6 border-t border-white/15 space-y-2 text-xs text-[#94A3B8]">
+          <p>
+            Compliance Notice: Trade licenses and residency visas are issued solely by UAE Free
+            Zone Authorities, Dubai DET, and ICP/GDRFA. Corporate bank accounts are subject to each
+            regulated bank&apos;s independent KYC assessment.
+          </p>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 pt-2">
+            <p>© {new Date().getFullYear()} SimplyBizNest ({config.siteName}). All rights reserved.</p>
+            <p>Digital UAE Corporate Advisory · {config.contactEmail}</p>
+          </div>
         </div>
       </div>
 
-      {/* Mobile Sticky Bottom Bar: ONLY single full-width #2863e8 Get Instant Quote button */}
+      {/* Sticky Mobile WhatsApp Bar */}
       <div className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-[#E2E8F0] px-4 py-2.5">
-        <button
-          type="button"
-          onClick={() => onJumpToSection('cost-calculator')}
-          className="w-full py-3 rounded-lg bg-[#2863e8] hover:bg-[#1e50c4] text-white font-bold text-sm text-center shadow-sm"
+        <a
+          href={waUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full py-3 rounded-lg bg-[#1F65ED] hover:bg-[#1750c4] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-sm"
         >
-          Get Instant Quote
-        </button>
+          <MessageCircle className="w-4 h-4 shrink-0" />
+          <span>Get Instant Quote on WhatsApp</span>
+        </a>
       </div>
     </footer>
   );

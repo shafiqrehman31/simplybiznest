@@ -7,7 +7,7 @@ import { generateProposalBookletPdf } from './server/booklet.ts';
 
 dotenv.config();
 
-const PORT = process.env.PORT;
+const PORT = 3000;
 
 function getGeminiClient(): GoogleGenAI | null {
   const apiKey = process.env.GEMINI_API_KEY;
@@ -31,9 +31,9 @@ async function startServer() {
   // 1. Downloadable 10-Page Proposal Booklet PDF (/booklet.pdf & /api/booklet.pdf)
   const handleBookletPdf = async (req: Request, res: Response) => {
     try {
-      const zeroVisa = Number(req.query.zeroVisa) || 11500;
-      const oneVisa = Number(req.query.oneVisa) || 17900;
-      const mainland = Number(req.query.mainland) || 23500;
+      const zeroVisa = Number(req.query.zeroVisa) || 6499;
+      const oneVisa = Number(req.query.oneVisa) || 11200;
+      const mainland = Number(req.query.mainland) || 11800;
 
       const pdfBuffer = await generateProposalBookletPdf({
         zeroVisaPriceAed: zeroVisa,
@@ -73,15 +73,13 @@ async function startServer() {
       return;
     }
 
-    const systemInstruction = `You are the official UAE WhatsApp Formation Chatbot for simplybiznest.com.
+    const systemInstruction = `You are the official UAE WhatsApp Formation Chatbot for SimplyBizNest (simplybiznest.com), Dubai's VIP Express Desk.
 Tone: Executive, concise, authoritative, transparent, no buzzwords.
-Core Pricing Reference:
-- Zero-Visa Free Zone Package: AED 11,500
-- 1-Visa All-Inclusive Free Zone Package: AED 17,900 (includes License, Establishment Card, 1 Visa, Medical & Emirates ID, Banking KYC prep)
-- Dubai Mainland DET LLC: AED 23,500 base
-- Workspace schedules: Flexi Desks from AED 15,000/yr, Dedicated Desk AED 24,500/yr, Private Suite AED 42,000/yr, Mainland Ejari AED 28,000/yr.
-- Visa tiers: 1-Year Visa from AED 1,237, 2-Year Visa from AED 1,973, Establishment Card AED 1,850, VIP Medical & EID AED 1,150, Health Insurance from AED 950/yr.
-- Banking partners covered: Wio Business (2-5 business days post-EID), Mashreq NeoBiz (5-10 days), RAKBANK (7-14 days).
+Core Pricing Reference (Authority Govt Fee + SimplyBizNest Service Charge):
+- Zero-Visa Free Zone Package: AED 6,499 total (AED 4,999 Authority Fee + AED 1,500 Service Charge; Year 2 renewal AED 5,750)
+- 1-Visa Resident Free Zone Package: AED 11,200 total (AED 9,200 Authority, Establishment Card & Visa/EID + AED 2,000 Service Charge; Year 2 renewal AED 9,900)
+- Dubai Mainland DET LLC: AED 11,800 total (AED 9,500 DET Govt & TASHEEL Fee + AED 2,300 Service Charge; Year 2 renewal AED 10,400)
+- Banking partners covered: Wio Business (2-5 business days post-EID), Mashreq NeoBiz (5-10 days), RAKBANK (7-14 days). Always state honestly that final bank account approval rests with the regulated UAE bank—never promise a 100% guarantee.
 Contact Policy: ONLY mention WhatsApp advisory on the website or info@simplybiznest.com. NEVER invent or state any landline/phone number or physical street address.
 If the user mentions a business type, jurisdiction, or visa count, include a structured suggestedQuote object so they can lock it into the live tracker immediately.`;
 

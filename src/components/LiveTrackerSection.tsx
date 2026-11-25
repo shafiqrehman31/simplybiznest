@@ -57,15 +57,15 @@ export function LiveTrackerSection({ externalCode }: LiveTrackerSectionProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           {/* Left Explanatory & Search Column */}
           <div className="lg:col-span-5">
-            <p className="text-xs font-bold uppercase tracking-wider text-[#2863e8]">
+            <p className="text-xs font-bold uppercase tracking-wider text-[#1F65ED]">
               Real-Time Milestone Verification
             </p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0b1f4b] mt-2">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#0C1A38] mt-2">
               Live Application Progress Tracker
             </h2>
             <p className="mt-3 text-sm sm:text-base text-[#475569] leading-relaxed">
               Every locked quote generates an isolated tracking reference. Enter your{' '}
-              <span className="font-mono font-semibold text-[#0b1f4b]">SBN-XXXXXX</span> code to
+              <span className="font-mono font-semibold text-[#0C1A38]">SBN-XXXXXX</span> code to
               inspect live incorporation progress without exposing personal contact records.
             </p>
 
@@ -79,43 +79,43 @@ export function LiveTrackerSection({ externalCode }: LiveTrackerSectionProps) {
                   placeholder="Enter SBN-XXXXXX"
                   maxLength={20}
                   aria-label="Tracking Reference Code"
-                  className="w-full h-11 pl-10 pr-4 rounded-lg border border-[#E2E8F0] bg-[#F4F7FC] font-mono text-sm font-medium text-[#0b1f4b] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#2863e8]"
+                  className="w-full h-11 pl-10 pr-4 rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] font-mono text-sm font-medium text-[#0C1A38] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1F65ED]"
                 />
               </div>
               <button
                 type="submit"
                 disabled={loading}
-                className="h-11 px-5 rounded-lg bg-[#0b1f4b] hover:bg-[#2863e8] disabled:opacity-60 text-white text-sm font-bold whitespace-nowrap shrink-0 transition-colors"
+                className="h-11 px-5 rounded-lg bg-[#0C1A38] hover:bg-[#1F65ED] disabled:opacity-60 text-white text-sm font-bold whitespace-nowrap shrink-0 transition-colors"
               >
                 {loading ? 'Checking...' : 'Check Status'}
               </button>
             </form>
 
             {errorMsg && (
-              <p className="mt-3 text-xs font-medium text-[#0b1f4b] bg-[#F4F7FC] border border-[#E2E8F0] rounded-lg px-3.5 py-2.5">
+              <p className="mt-3 text-xs font-medium text-[#0C1A38] bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg px-3.5 py-2.5">
                 {errorMsg}
               </p>
             )}
           </div>
 
           {/* Right 6-Milestone Architectural Card */}
-          <div className="lg:col-span-7 bg-[#F4F7FC] border border-[#E2E8F0] rounded-xl p-6 sm:p-8">
+          <div className="lg:col-span-7 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-6 sm:p-8">
             <div className="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-[#E2E8F0]">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-[#475569]">
                   {statusRecord ? 'Active Mandate Reference' : '6-Stage Formation Pipeline'}
                 </span>
-                <p className="font-mono text-lg font-bold text-[#0b1f4b] mt-0.5 tabular-nums">
+                <p className="font-mono text-lg font-bold text-[#0C1A38] mt-0.5 tabular-nums">
                   {statusRecord ? statusRecord.trackingCode : searchedCode || 'SBN-PREVIEW'}
                 </p>
               </div>
               {statusRecord ? (
                 <div className="text-left sm:text-right text-xs text-[#475569]">
-                  <p className="font-bold text-[#0b1f4b]">
+                  <p className="font-bold text-[#0C1A38]">
                     {statusRecord.jurisdiction} · {statusRecord.visaCount}{' '}
                     {statusRecord.visaCount === 1 ? 'Visa' : 'Visas'}
                   </p>
-                  <p className="font-mono text-[#2863e8] font-bold mt-0.5 tabular-nums">
+                  <p className="font-mono text-[#1F65ED] font-bold mt-0.5 tabular-nums">
                     AED {statusRecord.estimatedAed.toLocaleString()}
                   </p>
                 </div>
@@ -130,7 +130,7 @@ export function LiveTrackerSection({ externalCode }: LiveTrackerSectionProps) {
             <ul className="mt-6 relative space-y-4">
               <span
                 aria-hidden="true"
-                className="absolute left-[13px] top-3 bottom-3 w-[2px] bg-[#2863e8]/25"
+                className="absolute left-[13px] top-3 bottom-3 w-[2px] bg-[#1F65ED]/25"
               />
               {ORDER_MILESTONES.map((milestone, idx) => {
                 const activeIndex = statusRecord ? statusRecord.milestoneIndex : -1;
@@ -142,9 +142,9 @@ export function LiveTrackerSection({ externalCode }: LiveTrackerSectionProps) {
                     <span
                       className={`absolute left-0 top-0.5 w-7 h-7 rounded-md flex items-center justify-center text-xs font-mono font-bold border transition-colors ${
                         isDone
-                          ? 'bg-[#2863e8] border-[#2863e8] text-white'
+                          ? 'bg-[#1F65ED] border-[#1F65ED] text-white'
                           : isCurrent
-                            ? 'bg-[#0b1f4b] border-[#0b1f4b] text-white'
+                            ? 'bg-[#0C1A38] border-[#0C1A38] text-white'
                             : 'bg-white border-[#E2E8F0] text-[#475569]'
                       }`}
                     >
@@ -155,7 +155,7 @@ export function LiveTrackerSection({ externalCode }: LiveTrackerSectionProps) {
                       <div className="flex flex-wrap items-center justify-between gap-2">
                         <span
                           className={`text-sm font-bold ${
-                            isDone || isCurrent ? 'text-[#0b1f4b]' : 'text-[#475569]'
+                            isDone || isCurrent ? 'text-[#0C1A38]' : 'text-[#475569]'
                           }`}
                         >
                           {milestone}

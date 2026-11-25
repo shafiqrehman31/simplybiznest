@@ -269,7 +269,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
   // Sign-in Gate
   if (!authReady) {
     return (
-      <div className="min-h-screen bg-[#F4F7FC] flex items-center justify-center p-6">
+      <div className="min-h-screen bg-[#F8FAFC] flex items-center justify-center p-6">
         <p className="text-sm font-medium text-[#475569]">Verifying admin session...</p>
       </div>
     );
@@ -277,7 +277,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-[#0b1f4b] flex items-center justify-center p-4">
+      <div className="min-h-screen bg-[#0C1A38] flex items-center justify-center p-4">
         <div className="bg-white border border-[#E2E8F0] rounded-xl max-w-md w-full p-8 shadow-2xl">
           <div className="flex items-center gap-3 pb-5 border-b border-[#E2E8F0]">
             <img
@@ -286,10 +286,10 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
               className="w-10 h-10 object-contain"
             />
             <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-[#2863e8]">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#1F65ED]">
                 Private Operations Console
               </p>
-              <h1 className="text-xl font-bold text-[#0b1f4b]">simplybiznest.com Admin</h1>
+              <h1 className="text-xl font-bold text-[#0C1A38]">simplybiznest.com Admin</h1>
             </div>
           </div>
 
@@ -299,7 +299,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
           </p>
 
           {authError && (
-            <p className="mt-4 text-xs font-medium text-[#0b1f4b] bg-[#F4F7FC] border border-[#2863e8] rounded-lg px-3 py-2">
+            <p className="mt-4 text-xs font-medium text-[#0C1A38] bg-[#F8FAFC] border border-[#1F65ED] rounded-lg px-3 py-2">
               {authError}
             </p>
           )}
@@ -308,14 +308,14 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
             <button
               type="button"
               onClick={handleGoogleLogin}
-              className="w-full py-3 px-4 rounded-lg bg-[#2863e8] hover:bg-[#1e50c4] text-white text-sm font-bold transition-colors"
+              className="w-full py-3 px-4 rounded-lg bg-[#1F65ED] hover:bg-[#1e50c4] text-white text-sm font-bold transition-colors"
             >
               Sign in with Google
             </button>
             <button
               type="button"
               onClick={onExitAdmin}
-              className="w-full py-2.5 px-4 rounded-lg border border-[#E2E8F0] text-sm font-medium text-[#475569] hover:text-[#0b1f4b]"
+              className="w-full py-2.5 px-4 rounded-lg border border-[#E2E8F0] text-sm font-medium text-[#475569] hover:text-[#0C1A38]"
             >
               Return to Public Website
             </button>
@@ -349,9 +349,9 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F4F7FC] flex flex-col lg:flex-row">
+    <div className="min-h-screen bg-[#F8FAFC] flex flex-col lg:flex-row">
       {/* Sidebar */}
-      <aside className="w-full lg:w-64 bg-[#0b1f4b] text-white flex flex-col justify-between shrink-0">
+      <aside className="w-full lg:w-64 bg-[#0C1A38] text-white flex flex-col justify-between shrink-0">
         <div>
           <div className="p-5 border-b border-white/15 flex items-center gap-3">
             <div className="w-9 h-9 rounded-lg bg-white p-1.5 flex items-center justify-center shrink-0">
@@ -378,7 +378,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                   onClick={() => setActiveTab(tab.id)}
                   className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                     isActive
-                      ? 'bg-[#2863e8] text-white font-bold'
+                      ? 'bg-[#1F65ED] text-white font-bold'
                       : 'text-[#CBD5E1] hover:bg-white/10 hover:text-white'
                   }`}
                 >
@@ -426,7 +426,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
         {activeTab === 'overview' && (
           <div className="space-y-6">
             <div>
-              <h1 className="text-2xl font-bold text-[#0b1f4b]">Overview & Analytics</h1>
+              <h1 className="text-2xl font-bold text-[#0C1A38]">Overview & Analytics</h1>
               <p className="text-sm text-[#475569]">
                 Live formation pipeline metrics, milestone distribution, and license quota health.
               </p>
@@ -437,7 +437,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                 <p className="text-xs font-bold uppercase tracking-wider text-[#475569]">
                   Total Quotes Locked
                 </p>
-                <p className="font-mono text-2xl font-bold text-[#0b1f4b] mt-2 tabular-nums">
+                <p className="font-mono text-2xl font-bold text-[#0C1A38] mt-2 tabular-nums">
                   {orders.length}
                 </p>
               </div>
@@ -445,7 +445,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                 <p className="text-xs font-bold uppercase tracking-wider text-[#475569]">
                   Pipeline Volume
                 </p>
-                <p className="font-mono text-2xl font-bold text-[#2863e8] mt-2 tabular-nums">
+                <p className="font-mono text-2xl font-bold text-[#1F65ED] mt-2 tabular-nums">
                   AED {totalPipelineAed.toLocaleString()}
                 </p>
               </div>
@@ -453,7 +453,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                 <p className="text-xs font-bold uppercase tracking-wider text-[#475569]">
                   Active Companies
                 </p>
-                <p className="font-mono text-2xl font-bold text-[#0b1f4b] mt-2 tabular-nums">
+                <p className="font-mono text-2xl font-bold text-[#0C1A38] mt-2 tabular-nums">
                   {activeCompaniesCount}
                 </p>
               </div>
@@ -461,7 +461,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                 <p className="text-xs font-bold uppercase tracking-wider text-[#475569]">
                   Open Threshold Alerts
                 </p>
-                <p className="font-mono text-2xl font-bold text-[#0b1f4b] mt-2 tabular-nums">
+                <p className="font-mono text-2xl font-bold text-[#0C1A38] mt-2 tabular-nums">
                   {openAlerts.length}
                 </p>
               </div>
@@ -470,7 +470,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Milestone Distribution Chart */}
               <div className="bg-white border border-[#E2E8F0] rounded-xl p-6">
-                <h2 className="text-base font-bold text-[#0b1f4b] pb-3 border-b border-[#E2E8F0]">
+                <h2 className="text-base font-bold text-[#0C1A38] pb-3 border-b border-[#E2E8F0]">
                   Order Status Distribution
                 </h2>
                 <ul className="mt-4 space-y-3.5">
@@ -485,9 +485,9 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                             {count} ({pct}%)
                           </span>
                         </div>
-                        <div className="h-2.5 bg-[#F4F7FC] rounded-full overflow-hidden border border-[#E2E8F0]">
+                        <div className="h-2.5 bg-[#F8FAFC] rounded-full overflow-hidden border border-[#E2E8F0]">
                           <div
-                            className="h-full bg-[#2863e8] rounded-full transition-all"
+                            className="h-full bg-[#1F65ED] rounded-full transition-all"
                             style={{ width: `${pct}%` }}
                           />
                         </div>
@@ -499,7 +499,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
 
               {/* Inventory Health Chart */}
               <div className="bg-white border border-[#E2E8F0] rounded-xl p-6">
-                <h2 className="text-base font-bold text-[#0b1f4b] pb-3 border-b border-[#E2E8F0]">
+                <h2 className="text-base font-bold text-[#0C1A38] pb-3 border-b border-[#E2E8F0]">
                   License & Visa Pool Utilization
                 </h2>
                 {inventory.length === 0 ? (
@@ -524,10 +524,10 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                               {isLow ? ' (Low)' : ''}
                             </span>
                           </div>
-                          <div className="h-2.5 bg-[#F4F7FC] rounded-full overflow-hidden border border-[#E2E8F0]">
+                          <div className="h-2.5 bg-[#F8FAFC] rounded-full overflow-hidden border border-[#E2E8F0]">
                             <div
                               className={`h-full rounded-full ${
-                                isLow ? 'bg-[#0b1f4b]' : 'bg-[#2863e8]'
+                                isLow ? 'bg-[#0C1A38]' : 'bg-[#1F65ED]'
                               }`}
                               style={{ width: `${pct}%` }}
                             />
@@ -547,7 +547,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
           <div className="space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
-                <h1 className="text-2xl font-bold text-[#0b1f4b]">Orders & Exports</h1>
+                <h1 className="text-2xl font-bold text-[#0C1A38]">Orders & Exports</h1>
                 <p className="text-sm text-[#475569]">
                   Advance client milestones atomically and export audited CSV pipeline reports.
                 </p>
@@ -555,7 +555,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
               <button
                 type="button"
                 onClick={handleExportCsv}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#2863e8] hover:bg-[#1e50c4] text-white text-sm font-bold"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#1F65ED] hover:bg-[#1e50c4] text-white text-sm font-bold"
               >
                 <Download className="w-4 h-4" />
                 <span>Export CSV & Log Audit</span>
@@ -568,12 +568,12 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                 value={orderSearch}
                 onChange={(e) => setOrderSearch(e.target.value)}
                 placeholder="Search SBN code, client name, or activity..."
-                className="flex-1 min-w-[220px] h-10 px-3 rounded-lg border border-[#E2E8F0] text-sm text-[#0b1f4b]"
+                className="flex-1 min-w-[220px] h-10 px-3 rounded-lg border border-[#E2E8F0] text-sm text-[#0C1A38]"
               />
               <select
                 value={orderFilter}
                 onChange={(e) => setOrderFilter(e.target.value)}
-                className="h-10 px-3 rounded-lg border border-[#E2E8F0] text-sm text-[#0b1f4b] bg-white"
+                className="h-10 px-3 rounded-lg border border-[#E2E8F0] text-sm text-[#0C1A38] bg-white"
               >
                 <option value="All">All Milestones</option>
                 {ORDER_MILESTONES.map((ms) => (
@@ -587,7 +587,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
             <div className="bg-white border border-[#E2E8F0] rounded-xl overflow-x-auto">
               <table className="w-full text-left border-collapse text-sm">
                 <thead>
-                  <tr className="bg-[#F4F7FC] border-b border-[#E2E8F0] text-xs font-bold uppercase text-[#475569]">
+                  <tr className="bg-[#F8FAFC] border-b border-[#E2E8F0] text-xs font-bold uppercase text-[#475569]">
                     <th className="py-3 px-4">Reference</th>
                     <th className="py-3 px-4">Client & WhatsApp</th>
                     <th className="py-3 px-4">Scope</th>
@@ -605,23 +605,23 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                     </tr>
                   ) : (
                     filteredOrders.map((o) => (
-                      <tr key={o.trackingCode} className="hover:bg-[#F4F7FC]/60">
-                        <td className="py-3 px-4 font-mono font-bold text-[#0b1f4b] whitespace-nowrap">
+                      <tr key={o.trackingCode} className="hover:bg-[#F8FAFC]/60">
+                        <td className="py-3 px-4 font-mono font-bold text-[#0C1A38] whitespace-nowrap">
                           {o.trackingCode}
                         </td>
                         <td className="py-3 px-4">
-                          <span className="font-bold text-[#0b1f4b] block">{o.fullName}</span>
+                          <span className="font-bold text-[#0C1A38] block">{o.fullName}</span>
                           <span className="font-mono text-xs text-[#475569] block">
                             {o.countryCode} {o.whatsapp} {o.email ? `· ${o.email}` : ''}
                           </span>
                         </td>
                         <td className="py-3 px-4 text-xs text-[#475569]">
-                          <span className="font-bold text-[#0b1f4b] block">
+                          <span className="font-bold text-[#0C1A38] block">
                             {o.jurisdiction} ({o.visaCount} Visas)
                           </span>
                           <span>{o.activity}</span>
                         </td>
-                        <td className="py-3 px-4 text-right font-mono font-bold text-[#0b1f4b] tabular-nums">
+                        <td className="py-3 px-4 text-right font-mono font-bold text-[#0C1A38] tabular-nums">
                           {o.estimatedAed.toLocaleString()}
                         </td>
                         <td className="py-3 px-4">
@@ -633,7 +633,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                                 e.target.value as OrderMilestoneStatus
                               )
                             }
-                            className="h-9 px-2 rounded-md border border-[#E2E8F0] text-xs font-medium text-[#0b1f4b] bg-white"
+                            className="h-9 px-2 rounded-md border border-[#E2E8F0] text-xs font-medium text-[#0C1A38] bg-white"
                           >
                             {ORDER_MILESTONES.map((ms) => (
                               <option key={ms} value={ms}>
@@ -647,7 +647,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                             type="button"
                             disabled={syncingCode === o.trackingCode}
                             onClick={() => handleSyncOneOrder(o)}
-                            className="px-2.5 py-1.5 rounded-md border border-[#E2E8F0] text-xs font-bold text-[#2863e8] hover:bg-[#F4F7FC]"
+                            className="px-2.5 py-1.5 rounded-md border border-[#E2E8F0] text-xs font-bold text-[#1F65ED] hover:bg-[#F8FAFC]"
                           >
                             {syncingCode === o.trackingCode
                               ? 'Syncing...'
@@ -665,7 +665,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
 
             {/* Export Audit Log */}
             <div className="bg-white border border-[#E2E8F0] rounded-xl p-6">
-              <h2 className="text-base font-bold text-[#0b1f4b] pb-3 border-b border-[#E2E8F0]">
+              <h2 className="text-base font-bold text-[#0C1A38] pb-3 border-b border-[#E2E8F0]">
                 Audit Trail: Report Exports
               </h2>
               {exportLogs.length === 0 ? (
@@ -675,7 +675,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                   {exportLogs.slice(0, 10).map((log) => (
                     <li key={log.id} className="py-2.5 flex justify-between text-[#475569]">
                       <span>
-                        <strong className="text-[#0b1f4b]">{log.reportType}</strong> · by{' '}
+                        <strong className="text-[#0C1A38]">{log.reportType}</strong> · by{' '}
                         {log.exportedBy}
                       </span>
                       <span className="font-mono tabular-nums">{log.rowCount} rows</span>
@@ -691,7 +691,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
         {activeTab === 'inventory' && (
           <div className="space-y-6">
             <div>
-              <h1 className="text-2xl font-bold text-[#0b1f4b]">Inventory & Alerts</h1>
+              <h1 className="text-2xl font-bold text-[#0C1A38]">Inventory & Alerts</h1>
               <p className="text-sm text-[#475569]">
                 Monitor Free Zone license allocations, visa medical slots, and banking desk quotas.
               </p>
@@ -699,8 +699,8 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
 
             {/* Active Alerts */}
             <div className="bg-white border border-[#E2E8F0] rounded-xl p-6">
-              <h2 className="text-base font-bold text-[#0b1f4b] flex items-center gap-2 pb-3 border-b border-[#E2E8F0]">
-                <AlertTriangle className="w-4 h-4 text-[#2863e8]" />
+              <h2 className="text-base font-bold text-[#0C1A38] flex items-center gap-2 pb-3 border-b border-[#E2E8F0]">
+                <AlertTriangle className="w-4 h-4 text-[#1F65ED]" />
                 <span>Low-Threshold Alerts ({openAlerts.length} Active)</span>
               </h2>
               {alerts.length === 0 ? (
@@ -710,7 +710,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                   {alerts.map((al) => (
                     <li key={al.id} className="py-3 flex flex-wrap items-center justify-between gap-4">
                       <div className="text-sm">
-                        <span className="font-bold text-[#0b1f4b]">{al.slotName}</span>
+                        <span className="font-bold text-[#0C1A38]">{al.slotName}</span>
                         <span className="block text-xs text-[#475569]">
                           Current: <strong className="font-mono">{al.currentSlots}</strong> · Threshold:{' '}
                           <strong className="font-mono">{al.threshold}</strong> · Severity: {al.severity}
@@ -721,8 +721,8 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                         onClick={() => resolveAlert(al.id, !al.resolved)}
                         className={`px-3 py-1.5 rounded-lg text-xs font-bold ${
                           al.resolved
-                            ? 'bg-[#F4F7FC] text-[#475569] border border-[#E2E8F0]'
-                            : 'bg-[#0b1f4b] text-white'
+                            ? 'bg-[#F8FAFC] text-[#475569] border border-[#E2E8F0]'
+                            : 'bg-[#0C1A38] text-white'
                         }`}
                       >
                         {al.resolved ? 'Resolved (Reopen)' : 'Mark Resolved'}
@@ -741,10 +741,10 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                   className="bg-white border border-[#E2E8F0] rounded-xl p-5 flex items-center justify-between gap-4"
                 >
                   <div>
-                    <p className="text-xs font-bold text-[#2863e8]">
+                    <p className="text-xs font-bold text-[#1F65ED]">
                       {slot.category} · {slot.jurisdiction}
                     </p>
-                    <h3 className="text-base font-bold text-[#0b1f4b] mt-0.5">{slot.name}</h3>
+                    <h3 className="text-base font-bold text-[#0C1A38] mt-0.5">{slot.name}</h3>
                     <p className="font-mono text-xs text-[#475569] mt-1 tabular-nums">
                       Available: {slot.availableSlots} / {slot.totalSlots} · Alert &le;{' '}
                       {slot.lowThreshold}
@@ -759,7 +759,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                           availableSlots: Math.max(0, slot.availableSlots - 1),
                         })
                       }
-                      className="w-8 h-8 rounded-lg border border-[#E2E8F0] font-bold text-[#0b1f4b] hover:bg-[#F4F7FC]"
+                      className="w-8 h-8 rounded-lg border border-[#E2E8F0] font-bold text-[#0C1A38] hover:bg-[#F8FAFC]"
                     >
                       -
                     </button>
@@ -771,7 +771,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                           availableSlots: Math.min(slot.totalSlots, slot.availableSlots + 1),
                         })
                       }
-                      className="w-8 h-8 rounded-lg bg-[#2863e8] text-white font-bold hover:bg-[#1e50c4]"
+                      className="w-8 h-8 rounded-lg bg-[#1F65ED] text-white font-bold hover:bg-[#1e50c4]"
                     >
                       +
                     </button>
@@ -785,7 +785,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
               onSubmit={handleAddSlot}
               className="bg-white border border-[#E2E8F0] rounded-xl p-6 space-y-4"
             >
-              <h2 className="text-base font-bold text-[#0b1f4b]">Add New Slot Pool</h2>
+              <h2 className="text-base font-bold text-[#0C1A38]">Add New Slot Pool</h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <input
                   type="text"
@@ -839,7 +839,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
               </div>
               <button
                 type="submit"
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#0b1f4b] hover:bg-[#2863e8] text-white text-sm font-bold"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-[#0C1A38] hover:bg-[#1F65ED] text-white text-sm font-bold"
               >
                 <Plus className="w-4 h-4" />
                 <span>Create Slot Pool</span>
@@ -853,7 +853,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
           <div className="space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div>
-                <h1 className="text-2xl font-bold text-[#0b1f4b]">Pipedrive CRM Sync</h1>
+                <h1 className="text-2xl font-bold text-[#0C1A38]">Pipedrive CRM Sync</h1>
                 <p className="text-sm text-[#475569]">
                   Server-side lead synchronization via PIPEDRIVE_API_TOKEN &amp;
                   PIPEDRIVE_COMPANY_DOMAIN.
@@ -863,7 +863,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                 type="button"
                 disabled={batchSyncing}
                 onClick={handleBatchSync}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#2863e8] hover:bg-[#1e50c4] disabled:opacity-60 text-white text-sm font-bold"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#1F65ED] hover:bg-[#1e50c4] disabled:opacity-60 text-white text-sm font-bold"
               >
                 <RefreshCw className={`w-4 h-4 ${batchSyncing ? 'animate-spin' : ''}`} />
                 <span>{batchSyncing ? 'Syncing Pending Leads...' : 'Batch Sync Pending Leads'}</span>
@@ -872,9 +872,9 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
 
             <div className="bg-white border border-[#E2E8F0] rounded-xl p-6 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <CheckCircle2 className="w-5 h-5 text-[#2863e8]" />
+                <CheckCircle2 className="w-5 h-5 text-[#1F65ED]" />
                 <div>
-                  <p className="text-sm font-bold text-[#0b1f4b]">
+                  <p className="text-sm font-bold text-[#0C1A38]">
                     {pipedriveStatus.configured
                       ? `Connected to ${pipedriveStatus.domain}.pipedrive.com`
                       : 'Pipedrive Environment Credentials Not Yet Set (Staging as pending_config)'}
@@ -890,7 +890,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
             <div className="bg-white border border-[#E2E8F0] rounded-xl overflow-x-auto">
               <table className="w-full text-left border-collapse text-sm">
                 <thead>
-                  <tr className="bg-[#F4F7FC] border-b border-[#E2E8F0] text-xs font-bold uppercase text-[#475569]">
+                  <tr className="bg-[#F8FAFC] border-b border-[#E2E8F0] text-xs font-bold uppercase text-[#475569]">
                     <th className="py-3 px-4">Tracking ID</th>
                     <th className="py-3 px-4">Applicant</th>
                     <th className="py-3 px-4">Sync State</th>
@@ -901,9 +901,9 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                 <tbody className="divide-y divide-[#E2E8F0]">
                   {orders.map((o) => (
                     <tr key={o.trackingCode}>
-                      <td className="py-3 px-4 font-mono font-bold text-[#0b1f4b]">{o.trackingCode}</td>
+                      <td className="py-3 px-4 font-mono font-bold text-[#0C1A38]">{o.trackingCode}</td>
                       <td className="py-3 px-4 text-[#1E293B]">{o.fullName}</td>
-                      <td className="py-3 px-4 font-mono text-xs text-[#2863e8]">{o.pipedriveStatus}</td>
+                      <td className="py-3 px-4 font-mono text-xs text-[#1F65ED]">{o.pipedriveStatus}</td>
                       <td className="py-3 px-4 font-mono text-xs text-[#475569]">
                         {o.pipedriveDealId || '—'}
                       </td>
@@ -911,7 +911,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                         <button
                           type="button"
                           onClick={() => handleSyncOneOrder(o)}
-                          className="px-3 py-1.5 rounded-md border border-[#E2E8F0] text-xs font-bold text-[#0b1f4b] hover:bg-[#F4F7FC]"
+                          className="px-3 py-1.5 rounded-md border border-[#E2E8F0] text-xs font-bold text-[#0C1A38] hover:bg-[#F8FAFC]"
                         >
                           Sync Now
                         </button>
@@ -928,7 +928,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
         {activeTab === 'cms' && (
           <div className="space-y-8">
             <div>
-              <h1 className="text-2xl font-bold text-[#0b1f4b]">CMS & Regulatory Blog</h1>
+              <h1 className="text-2xl font-bold text-[#0C1A38]">CMS & Regulatory Blog</h1>
               <p className="text-sm text-[#475569]">
                 Update live site branding, pricing tiers, navigation pages, and regulatory guides.
               </p>
@@ -940,15 +940,15 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
               className="bg-white border border-[#E2E8F0] rounded-xl p-6 space-y-5"
             >
               <div className="flex items-center justify-between pb-3 border-b border-[#E2E8F0]">
-                <h2 className="text-base font-bold text-[#0b1f4b]">
+                <h2 className="text-base font-bold text-[#0C1A38]">
                   Brand Assets, Pricing & Hero Configuration
                 </h2>
-                {cmsNotice && <span className="text-xs font-bold text-[#2863e8]">{cmsNotice}</span>}
+                {cmsNotice && <span className="text-xs font-bold text-[#1F65ED]">{cmsNotice}</span>}
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-[#0b1f4b] mb-1">Site Name</label>
+                  <label className="block text-xs font-bold text-[#0C1A38] mb-1">Site Name</label>
                   <input
                     type="text"
                     value={cmsForm.siteName}
@@ -957,7 +957,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-[#0b1f4b] mb-1">Contact Email</label>
+                  <label className="block text-xs font-bold text-[#0C1A38] mb-1">Contact Email</label>
                   <input
                     type="email"
                     value={cmsForm.contactEmail}
@@ -966,7 +966,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-[#0b1f4b] mb-1">Header Logo URL</label>
+                  <label className="block text-xs font-bold text-[#0C1A38] mb-1">Header Logo URL</label>
                   <input
                     type="text"
                     value={cmsForm.headerLogoUrl}
@@ -975,7 +975,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-[#0b1f4b] mb-1">
+                  <label className="block text-xs font-bold text-[#0C1A38] mb-1">
                     Footer Logo URL (Optional Light/White)
                   </label>
                   <input
@@ -986,7 +986,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-[#0b1f4b] mb-1">Favicon URL</label>
+                  <label className="block text-xs font-bold text-[#0C1A38] mb-1">Favicon URL</label>
                   <input
                     type="text"
                     value={cmsForm.faviconUrl}
@@ -995,7 +995,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-[#0b1f4b] mb-1">
+                  <label className="block text-xs font-bold text-[#0C1A38] mb-1">
                     WhatsApp Number (Digits Only)
                   </label>
                   <input
@@ -1008,7 +1008,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-[#0b1f4b] mb-1">Hero Headline</label>
+                <label className="block text-xs font-bold text-[#0C1A38] mb-1">Hero Headline</label>
                 <input
                   type="text"
                   value={cmsForm.heroHeadline}
@@ -1018,7 +1018,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-[#0b1f4b] mb-1">Hero Subheadline</label>
+                <label className="block text-xs font-bold text-[#0C1A38] mb-1">Hero Subheadline</label>
                 <textarea
                   rows={2}
                   value={cmsForm.heroSubheadline}
@@ -1028,7 +1028,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-[#0b1f4b] mb-1">Promo Notice</label>
+                <label className="block text-xs font-bold text-[#0C1A38] mb-1">Promo Notice</label>
                 <input
                   type="text"
                   value={cmsForm.promoNotice}
@@ -1039,7 +1039,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-[#0b1f4b] mb-1">
+                  <label className="block text-xs font-bold text-[#0C1A38] mb-1">
                     Zero-Visa Free Zone (AED)
                   </label>
                   <input
@@ -1052,7 +1052,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-[#0b1f4b] mb-1">
+                  <label className="block text-xs font-bold text-[#0C1A38] mb-1">
                     1-Visa All-Inclusive (AED)
                   </label>
                   <input
@@ -1065,7 +1065,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-bold text-[#0b1f4b] mb-1">
+                  <label className="block text-xs font-bold text-[#0C1A38] mb-1">
                     Dubai Mainland DET LLC (AED)
                   </label>
                   <input
@@ -1126,7 +1126,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
               <button
                 type="submit"
                 disabled={cmsSaving}
-                className="px-5 py-2.5 rounded-lg bg-[#2863e8] hover:bg-[#1e50c4] text-white text-sm font-bold"
+                className="px-5 py-2.5 rounded-lg bg-[#1F65ED] hover:bg-[#1e50c4] text-white text-sm font-bold"
               >
                 {cmsSaving ? 'Saving...' : 'Save Site Configuration'}
               </button>
@@ -1135,7 +1135,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
             {/* Navigation Menu Items CRUD */}
             <div className="bg-white border border-[#E2E8F0] rounded-xl p-6 space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-[#E2E8F0]">
-                <h2 className="text-base font-bold text-[#0b1f4b]">Header Navbar Menu & Pages</h2>
+                <h2 className="text-base font-bold text-[#0C1A38]">Header Navbar Menu & Pages</h2>
                 <button
                   type="button"
                   onClick={() =>
@@ -1149,7 +1149,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                       visible: true,
                     })
                   }
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0b1f4b] text-white text-xs font-bold"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0C1A38] text-white text-xs font-bold"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   <span>Add Menu Page</span>
@@ -1160,7 +1160,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                 {navItems.map((item) => (
                   <li key={item.id} className="py-3 flex items-center justify-between gap-4 text-sm">
                     <div>
-                      <span className="font-bold text-[#0b1f4b]">{item.title}</span>
+                      <span className="font-bold text-[#0C1A38]">{item.title}</span>
                       <span className="ml-2 font-mono text-xs text-[#475569]">/{item.slug}</span>
                       {!item.visible && (
                         <span className="ml-2 text-xs text-[#475569]">(Hidden)</span>
@@ -1170,14 +1170,14 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                       <button
                         type="button"
                         onClick={() => setEditingNav(item)}
-                        className="px-2.5 py-1 rounded border border-[#E2E8F0] text-xs font-bold text-[#2863e8]"
+                        className="px-2.5 py-1 rounded border border-[#E2E8F0] text-xs font-bold text-[#1F65ED]"
                       >
                         Edit
                       </button>
                       <button
                         type="button"
                         onClick={() => deleteNavMenuItem(item.id)}
-                        className="p-1.5 rounded border border-[#E2E8F0] text-[#475569] hover:text-[#0b1f4b]"
+                        className="p-1.5 rounded border border-[#E2E8F0] text-[#475569] hover:text-[#0C1A38]"
                         aria-label={`Delete ${item.title}`}
                       >
                         <Trash2 className="w-3.5 h-3.5" />
@@ -1190,7 +1190,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
               {editingNav && (
                 <form
                   onSubmit={handleSaveNav}
-                  className="p-4 bg-[#F4F7FC] border border-[#E2E8F0] rounded-lg space-y-3"
+                  className="p-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg space-y-3"
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <input
@@ -1237,7 +1237,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                     }
                     className="w-full p-3 rounded border border-[#E2E8F0] bg-white text-sm"
                   />
-                  <label className="flex items-center gap-2 text-xs font-bold text-[#0b1f4b]">
+                  <label className="flex items-center gap-2 text-xs font-bold text-[#0C1A38]">
                     <input
                       type="checkbox"
                       checked={editingNav.visible}
@@ -1250,7 +1250,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                   <div className="flex gap-2">
                     <button
                       type="submit"
-                      className="px-4 py-2 rounded bg-[#2863e8] text-white text-xs font-bold"
+                      className="px-4 py-2 rounded bg-[#1F65ED] text-white text-xs font-bold"
                     >
                       Save Menu Item
                     </button>
@@ -1269,7 +1269,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
             {/* Regulatory Guides / Blog CRUD */}
             <div className="bg-white border border-[#E2E8F0] rounded-xl p-6 space-y-4">
               <div className="flex items-center justify-between pb-3 border-b border-[#E2E8F0]">
-                <h2 className="text-base font-bold text-[#0b1f4b]">Regulatory Guides & Blog Posts</h2>
+                <h2 className="text-base font-bold text-[#0C1A38]">Regulatory Guides & Blog Posts</h2>
                 <button
                   type="button"
                   onClick={() =>
@@ -1286,7 +1286,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                       visible: true,
                     })
                   }
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0b1f4b] text-white text-xs font-bold"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0C1A38] text-white text-xs font-bold"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   <span>New Guide</span>
@@ -1297,7 +1297,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                 {blogPosts.map((post) => (
                   <li key={post.id} className="py-3 flex items-center justify-between gap-4 text-sm">
                     <div>
-                      <span className="font-bold text-[#0b1f4b]">{post.title}</span>
+                      <span className="font-bold text-[#0C1A38]">{post.title}</span>
                       <span className="block text-xs text-[#475569]">
                         {post.category} · {post.readTime}
                       </span>
@@ -1306,14 +1306,14 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                       <button
                         type="button"
                         onClick={() => setEditingPost(post)}
-                        className="px-2.5 py-1 rounded border border-[#E2E8F0] text-xs font-bold text-[#2863e8]"
+                        className="px-2.5 py-1 rounded border border-[#E2E8F0] text-xs font-bold text-[#1F65ED]"
                       >
                         Edit
                       </button>
                       <button
                         type="button"
                         onClick={() => deleteBlogPost(post.id)}
-                        className="p-1.5 rounded border border-[#E2E8F0] text-[#475569] hover:text-[#0b1f4b]"
+                        className="p-1.5 rounded border border-[#E2E8F0] text-[#475569] hover:text-[#0C1A38]"
                         aria-label={`Delete ${post.title}`}
                       >
                         <Trash2 className="w-3.5 h-3.5" />
@@ -1326,7 +1326,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
               {editingPost && (
                 <form
                   onSubmit={handleSavePost}
-                  className="p-4 bg-[#F4F7FC] border border-[#E2E8F0] rounded-lg space-y-3"
+                  className="p-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg space-y-3"
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <input
@@ -1378,7 +1378,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                     onChange={(e) => setEditingPost({ ...editingPost, content: e.target.value })}
                     className="w-full p-3 rounded border border-[#E2E8F0] bg-white text-sm"
                   />
-                  <label className="flex items-center gap-2 text-xs font-bold text-[#0b1f4b]">
+                  <label className="flex items-center gap-2 text-xs font-bold text-[#0C1A38]">
                     <input
                       type="checkbox"
                       checked={editingPost.visible}
@@ -1391,7 +1391,7 @@ export function AdminDashboard({ config, onExitAdmin }: AdminDashboardProps) {
                   <div className="flex gap-2">
                     <button
                       type="submit"
-                      className="px-4 py-2 rounded bg-[#2863e8] text-white text-xs font-bold"
+                      className="px-4 py-2 rounded bg-[#1F65ED] text-white text-xs font-bold"
                     >
                       Save Guide
                     </button>

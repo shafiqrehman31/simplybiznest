@@ -19,7 +19,7 @@ export function Header({ config, navItems, activeSlug, onNavigate }: HeaderProps
     .slice(0, 6);
 
   const waUrl = `https://wa.me/${config.whatsappNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(
-    'Hello simplybiznest.com advisory desk, I would like guidance on UAE company formation.'
+    'Hi SimplyBizNest team, I would like to speak with a UAE setup expert.'
   )}`;
 
   const handleNavClick = (slug: string) => {
@@ -34,7 +34,7 @@ export function Header({ config, navItems, activeSlug, onNavigate }: HeaderProps
         <button
           type="button"
           onClick={() => handleNavClick('home')}
-          className="flex items-center shrink-0 whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2863e8] rounded py-1"
+          className="flex items-center shrink-0 whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1F65ED] rounded py-1"
           aria-label={`${config.siteName} Home`}
         >
           <img
@@ -56,8 +56,8 @@ export function Header({ config, navItems, activeSlug, onNavigate }: HeaderProps
                 onClick={() => handleNavClick(item.slug)}
                 className={`text-sm font-medium whitespace-nowrap shrink-0 py-1 border-b-2 transition-colors ${
                   isActive
-                    ? 'text-[#0b1f4b] border-[#2863e8] font-bold'
-                    : 'text-[#475569] border-transparent hover:text-[#0b1f4b] hover:border-[#2863e8]/40'
+                    ? 'text-[#0C1A38] border-[#1F65ED] font-bold'
+                    : 'text-[#475569] border-transparent hover:text-[#0C1A38] hover:border-[#1F65ED]/40'
                 }`}
               >
                 {item.title}
@@ -72,16 +72,16 @@ export function Header({ config, navItems, activeSlug, onNavigate }: HeaderProps
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#2863e8] hover:bg-[#1e50c4] text-white text-sm font-medium whitespace-nowrap shrink-0 transition-colors"
+            className="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#1F65ED] hover:bg-[#1750c4] text-white text-sm font-bold whitespace-nowrap shrink-0 transition-colors"
           >
             <MessageCircle className="w-4 h-4 shrink-0" />
-            <span>WhatsApp Advisor</span>
+            <span>Talk to an Expert</span>
           </a>
 
           <button
             type="button"
             onClick={() => setMobileOpen((prev) => !prev)}
-            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-[#E2E8F0] text-[#0b1f4b] hover:bg-[#F4F7FC]"
+            className="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-[#E2E8F0] text-[#0C1A38] hover:bg-[#F8FAFC]"
             aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -102,8 +102,8 @@ export function Header({ config, navItems, activeSlug, onNavigate }: HeaderProps
                   onClick={() => handleNavClick(item.slug)}
                   className={`text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                     isActive
-                      ? 'bg-[#F4F7FC] text-[#0b1f4b] font-bold'
-                      : 'text-[#475569] hover:bg-[#F4F7FC] hover:text-[#0b1f4b]'
+                      ? 'bg-[#F8FAFC] text-[#0C1A38] font-bold'
+                      : 'text-[#475569] hover:bg-[#F8FAFC] hover:text-[#0C1A38]'
                   }`}
                 >
                   {item.title}
@@ -114,10 +114,10 @@ export function Header({ config, navItems, activeSlug, onNavigate }: HeaderProps
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#2863e8] text-white text-sm font-medium"
+              className="mt-2 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-[#1F65ED] text-white text-sm font-bold"
             >
               <MessageCircle className="w-4 h-4" />
-              <span>WhatsApp Advisor</span>
+              <span>Talk to an Expert</span>
             </a>
           </nav>
         </div>

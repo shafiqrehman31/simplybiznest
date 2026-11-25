@@ -9,15 +9,15 @@ export const DEFAULT_SITE_CONFIG: SiteConfig = {
   headerLogoUrl: DEFAULT_HEADER_LOGO,
   footerLogoUrl: DEFAULT_FOOTER_LOGO,
   faviconUrl: DEFAULT_FAVICON,
-  heroHeadline: 'Structured UAE Company Formation Without Hidden Renewal Fees',
+  heroHeadline: 'Launch Your UAE Free Zone or Mainland Company in 48 Hours',
   heroSubheadline:
-    'Launch your Dubai Free Zone or Mainland DET company with itemized AED/USD pricing, direct KYC banking preparation, and live milestone tracking—managed digitally from trade name to active IBAN.',
+    'VIP Express Desk formation starting at AED 6,499 with transparent government-vs-service fee splits, live milestone tracking, and pre-vetted UAE corporate banking coordination.',
   whatsappNumber: '971500000000',
   contactEmail: 'info@simplybiznest.com',
-  promoNotice: '2026 Q4 Allocation: Priority E-License Issuance & Wio Business KYC Desk Included',
-  zeroVisaPriceAed: 11500,
-  oneVisaPriceAed: 17900,
-  mainlandPriceAed: 23500,
+  promoNotice: 'VIP Express Desk · Transparent Authority vs. Service Fee Itemization',
+  zeroVisaPriceAed: 6499,
+  oneVisaPriceAed: 11200,
+  mainlandPriceAed: 11800,
   socialLinkedin: 'https://www.linkedin.com/company/simplybiznest',
   socialInstagram: 'https://www.instagram.com/simplybiznest',
   socialFacebook: 'https://www.facebook.com/simplybiznest',
@@ -88,7 +88,7 @@ export const DEFAULT_BLOG_POSTS: BlogPost[] = [
     publishedAt: 'November 2026',
     excerpt:
       'Compare ownership rules, Ejari lease requirements, UAE domestic B2B invoicing, and annual renewal economics between Free Zone authorities and Dubai DET Mainland LLCs.',
-    content: `Selecting between a Dubai Free Zone entity and a Dubai Department of Economy & Tourism (DET) Mainland LLC depends primarily on where your customers sit and whether you require physical retail or onshore government contracting.\n\n1. Market Access & Invoicing\nFree Zone entities excel for international consulting, software engineering, e-commerce, and cross-border trading. If your revenue comes from outside the UAE or from other Free Zone corporations, a Free Zone license avoids mandatory commercial office leases. By contrast, a Mainland DET LLC can invoice UAE onshore consumers, bid on federal tenders, and operate retail storefronts across Dubai.\n\n2. Office & Ejari Economics\nFree Zone packages start from AED 11,500 with a compliant Flexi Desk or shared workspace certificate, whereas Mainland LLCs typically require a registered Ejari tenancy or approved business center desk.\n\n3. Visa Scalability\nEntry-level Free Zone licenses comfortably accommodate 0 to 6 residency visas, while Mainland DET entities scale into double-digit headcount allocations tied to office square footage (approx. 9 sqm per visa).`,
+    content: `Selecting between a Dubai Free Zone entity and a Dubai Department of Economy & Tourism (DET) Mainland LLC depends primarily on where your customers sit and whether you require physical retail or onshore government contracting.\n\n1. Market Access & Invoicing\nFree Zone entities excel for international consulting, software engineering, e-commerce, and cross-border trading. If your revenue comes from outside the UAE or from other Free Zone corporations, a Free Zone license avoids mandatory commercial office leases. By contrast, a Mainland DET LLC can invoice UAE onshore consumers, bid on federal tenders, and operate retail storefronts across Dubai.\n\n2. Office & Ejari Economics\nFree Zone packages start from AED 6,499 with a compliant Flexi Desk or shared workspace certificate, whereas Mainland LLCs typically require a registered Ejari tenancy or approved business center desk.\n\n3. Visa Scalability\nEntry-level Free Zone licenses comfortably accommodate 0 to 6 residency visas, while Mainland DET entities scale into double-digit headcount allocations tied to office square footage (approx. 9 sqm per visa).`,
     visible: true,
   },
   {
@@ -154,13 +154,13 @@ export const FREE_ZONE_COMPARISON_LIST = [
     ],
   },
   {
-    zone: 'RAKEZ / Northern Emirates',
-    badge: 'Cost-Efficient Entry',
-    zeroVisaAed: 11500,
-    oneVisaAed: 17900,
+    zone: 'Northern Emirates / Express Zone',
+    badge: 'VIP Express Entry',
+    zeroVisaAed: 6499,
+    oneVisaAed: 11200,
     highlights: [
-      'Lowest barrier to entry for remote founders and solo consultants',
-      'Fast-track UAE residency visa eligibility with minimal overhead',
+      'Entry-level 0-Visa license at AED 6,499 all-in (Govt + Express Desk)',
+      'Fast-track 1-Visa UAE residency package at AED 11,200 total',
       'Full 100% foreign ownership and capital repatriation',
     ],
   },
@@ -219,24 +219,24 @@ export const BANKING_PARTNERS = [
 
 export const DEFAULT_FAQS = [
   {
-    q: 'Do I need to travel to Dubai to incorporate my company with simplybiznest.com?',
-    a: 'No travel is required for company incorporation, trade name reservation, MOA signing, or e-license issuance—we execute 100% digitally. You only need to visit the UAE for 3 to 5 working days if you apply for a UAE Residency Visa (for medical fitness screening and Emirates ID biometrics).',
+    q: 'What is actually included in the AED 6,499 Free Zone and AED 11,800 Dubai Mainland packages?',
+    a: 'Every SimplyBizNest quote separates exact Government/Authority tariffs from our VIP Express Desk service fee. The AED 6,499 Zero-Visa Free Zone package covers AED 4,999 in authority license/registration fees plus AED 1,500 for end-to-end filing, MOA drafting, and KYC banking prep. Dubai Mainland DET starts at AED 11,800 (AED 9,500 DET government & TASHEEL fees + AED 2,300 service charge).',
   },
   {
-    q: 'Are there any hidden annual renewal charges or mandatory local sponsor fees?',
-    a: 'Never. Both Free Zone and Mainland LLC commercial/professional activities allow 100% foreign ownership with zero local Emirati sponsor required. Your itemized quote shows government license fees, establishment card, and visa charges upfront.',
+    q: 'How fast can I get my UAE Trade License with the VIP Express Desk?',
+    a: 'Once your passport KYC and trade name choices are submitted, digital e-licenses for Express Free Zones are typically issued within 48 hours to 3 working days. Dubai Mainland DET instant-license structures can be registered within 24 to 72 hours.',
   },
   {
-    q: 'How long does it take to open a UAE corporate bank account after licensing?',
-    a: 'Once your E-License is issued and your Emirates ID is active, digital-first banks like Wio Business typically approve compliant files within 2 to 5 business days. Traditional SME desks such as Mashreq NeoBiz or RAKBANK typically finalize KYC review in 5 to 14 business days.',
+    q: 'Are Year 2 renewal costs inflated or marked up later?',
+    a: 'No. We publish Year 2 authority renewal schedules upfront before you incorporate (AED 5,750 for 0-Visa Free Zone, AED 9,900 for 1-Visa Resident renewal/admin, and AED 10,400 for Dubai Mainland DET excluding optional physical Ejari). There are zero hidden sponsor fees.',
   },
   {
-    q: 'Can I upgrade from a Zero-Visa Free Zone package to resident visas later?',
-    a: 'Yes. You can start on the AED 11,500 Zero-Visa package to lock your corporate entity and trade name, then activate your Establishment Card and apply for 1 to 6 residency visas whenever you are ready to relocate or sponsor staff.',
+    q: 'Does SimplyBizNest guarantee 100% UAE corporate bank account approval?',
+    a: 'No ethical formation firm can legally guarantee a bank decision—final KYC approval always rests with the regulated UAE financial institution. Instead, our banking desk audits your UBO background, website, activity code, and 6-month statements before introduction to Wio Business, Mashreq NeoBiz, or RAKBANK to prevent avoidable rejections.',
   },
   {
-    q: 'How does the live application progress tracker work?',
-    a: 'Every submitted quote immediately generates a unique non-PII reference code (e.g., SBN-XXXXXX). Entering that code in the Live Application Progress Tracker displays your real-time status across all 6 milestones without exposing your personal contact details.',
+    q: 'Do I need to fly to Dubai if I choose the 0-Visa or 1-Visa setup?',
+    a: 'For 0-Visa company formation, everything—from trade name reservation to e-license issuance—is completed 100% remotely. If you select the 1-Visa Resident package (AED 11,200), you only visit Dubai for 3 to 5 working days once your entry permit is ready to complete your medical test and Emirates ID biometrics.',
   },
 ];
 

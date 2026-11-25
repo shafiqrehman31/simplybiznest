@@ -49,22 +49,22 @@ export function SubPageViews({
     const key = slug.replace('legal-', '') as keyof typeof LEGAL_DOCUMENTS;
     const legal = LEGAL_DOCUMENTS[key] || LEGAL_DOCUMENTS.disclaimer;
     return (
-      <section className="py-14 bg-[#F4F7FC] min-h-[70vh]">
+      <section className="py-14 bg-[#F8FAFC] min-h-[70vh]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <button
             type="button"
             onClick={() => onNavigate('home')}
-            className="inline-flex items-center gap-1.5 text-sm font-bold text-[#2863e8] hover:text-[#0b1f4b] mb-6"
+            className="inline-flex items-center gap-1.5 text-sm font-bold text-[#1F65ED] hover:text-[#0C1A38] mb-6"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Home</span>
           </button>
 
           <div className="bg-white border border-[#E2E8F0] rounded-xl p-8 sm:p-10">
-            <p className="text-xs font-bold uppercase tracking-wider text-[#2863e8]">
+            <p className="text-xs font-bold uppercase tracking-wider text-[#1F65ED]">
               {config.siteName} Legal Governance
             </p>
-            <h1 className="text-3xl font-bold text-[#0b1f4b] mt-2">{legal.title}</h1>
+            <h1 className="text-3xl font-bold text-[#0C1A38] mt-2">{legal.title}</h1>
             <p className="text-sm text-[#475569] mt-2 pb-6 border-b border-[#E2E8F0]">
               {legal.subtitle}
             </p>
@@ -72,7 +72,7 @@ export function SubPageViews({
             <div className="mt-6 space-y-6">
               {legal.sections.map((sec) => (
                 <div key={sec.heading}>
-                  <h2 className="text-lg font-bold text-[#0b1f4b]">{sec.heading}</h2>
+                  <h2 className="text-lg font-bold text-[#0C1A38]">{sec.heading}</h2>
                   <p className="mt-2 text-sm text-[#475569] leading-relaxed">{sec.body}</p>
                 </div>
               ))}
@@ -86,12 +86,12 @@ export function SubPageViews({
   // Individual Blog / Guide Reader
   if (slug === 'guides' && selectedPost) {
     return (
-      <section className="py-14 bg-[#F4F7FC] min-h-[70vh]">
+      <section className="py-14 bg-[#F8FAFC] min-h-[70vh]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <button
             type="button"
             onClick={() => onSelectPost(null)}
-            className="inline-flex items-center gap-1.5 text-sm font-bold text-[#2863e8] hover:text-[#0b1f4b] mb-6"
+            className="inline-flex items-center gap-1.5 text-sm font-bold text-[#1F65ED] hover:text-[#0C1A38] mb-6"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>All Regulatory Guides</span>
@@ -99,13 +99,13 @@ export function SubPageViews({
 
           <article className="bg-white border border-[#E2E8F0] rounded-xl p-8 sm:p-10">
             <div className="text-xs text-[#475569] flex items-center gap-2">
-              <span className="font-bold text-[#2863e8]">{selectedPost.category}</span>
+              <span className="font-bold text-[#1F65ED]">{selectedPost.category}</span>
               <span aria-hidden="true">·</span>
               <span>{selectedPost.publishedAt}</span>
               <span aria-hidden="true">·</span>
               <span>{selectedPost.readTime}</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-[#0b1f4b] mt-3">
+            <h1 className="text-2xl sm:text-3xl font-bold text-[#0C1A38] mt-3">
               {selectedPost.title}
             </h1>
             <p className="text-xs text-[#475569] mt-2 pb-6 border-b border-[#E2E8F0]">
@@ -131,9 +131,9 @@ export function SubPageViews({
         : visiblePosts.filter((p) => p.category === guideCategory);
 
     return (
-      <section className="py-14 bg-[#F4F7FC] min-h-[75vh]">
+      <section className="py-14 bg-[#F8FAFC] min-h-[75vh]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#0b1f4b] text-white rounded-xl p-8 sm:p-10 mb-10">
+          <div className="bg-[#0C1A38] text-white rounded-xl p-8 sm:p-10 mb-10">
             <p className="text-xs font-bold uppercase tracking-wider text-[#93C5FD]">
               Regulatory Intelligence
             </p>
@@ -152,8 +152,8 @@ export function SubPageViews({
                 onClick={() => setGuideCategory(cat)}
                 className={`px-3.5 py-2 rounded-lg text-xs font-bold transition-colors ${
                   guideCategory === cat
-                    ? 'bg-[#0b1f4b] text-white'
-                    : 'bg-white border border-[#E2E8F0] text-[#475569] hover:text-[#0b1f4b]'
+                    ? 'bg-[#0C1A38] text-white'
+                    : 'bg-white border border-[#E2E8F0] text-[#475569] hover:text-[#0C1A38]'
                 }`}
               >
                 {cat}
@@ -169,17 +169,17 @@ export function SubPageViews({
               >
                 <div>
                   <div className="text-xs text-[#475569] flex items-center gap-2">
-                    <span className="font-bold text-[#2863e8]">{post.category}</span>
+                    <span className="font-bold text-[#1F65ED]">{post.category}</span>
                     <span aria-hidden="true">·</span>
                     <span>{post.readTime}</span>
                   </div>
-                  <h2 className="text-lg font-bold text-[#0b1f4b] mt-2">{post.title}</h2>
+                  <h2 className="text-lg font-bold text-[#0C1A38] mt-2">{post.title}</h2>
                   <p className="mt-2.5 text-sm text-[#475569] leading-relaxed">{post.excerpt}</p>
                 </div>
                 <button
                   type="button"
                   onClick={() => onSelectPost(post)}
-                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-[#2863e8] hover:text-[#0b1f4b]"
+                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-[#1F65ED] hover:text-[#0C1A38]"
                 >
                   <span>Read Full Guide</span>
                   <ArrowRight className="w-4 h-4" />
@@ -195,9 +195,9 @@ export function SubPageViews({
   // Free Zones Page
   if (slug === 'free-zones') {
     return (
-      <section className="py-14 bg-[#F4F7FC] min-h-[75vh]">
+      <section className="py-14 bg-[#F8FAFC] min-h-[75vh]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div className="bg-[#0b1f4b] text-white rounded-xl p-8 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="bg-[#0C1A38] text-white rounded-xl p-8 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
               <p className="text-xs font-bold uppercase tracking-wider text-[#93C5FD]">
                 100% Foreign Ownership
@@ -218,7 +218,7 @@ export function SubPageViews({
                     e.preventDefault();
                     void handleDownloadPdf();
                   }}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#2863e8] hover:bg-[#1e50c4] text-white text-sm font-bold"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#1F65ED] hover:bg-[#1e50c4] text-white text-sm font-bold"
                 >
                   <FileDown className="w-4 h-4" />
                   <span>{pdfDownloading ? 'Preparing Schedule PDF...' : 'Download Free Zone Schedule PDF'}</span>
@@ -235,14 +235,14 @@ export function SubPageViews({
               <div key={fz.zone} className="bg-white border border-[#E2E8F0] rounded-xl p-6">
                 <div className="flex items-center justify-between gap-4 pb-4 border-b border-[#E2E8F0]">
                   <div>
-                    <h2 className="text-xl font-bold text-[#0b1f4b]">{fz.zone}</h2>
+                    <h2 className="text-xl font-bold text-[#0C1A38]">{fz.zone}</h2>
                     <p className="text-xs text-[#475569] mt-0.5">{fz.badge}</p>
                   </div>
                   <div className="text-right font-mono text-xs tabular-nums">
-                    <span className="block font-bold text-[#0b1f4b]">
+                    <span className="block font-bold text-[#0C1A38]">
                       0-Visa: AED {fz.zeroVisaAed.toLocaleString()}
                     </span>
-                    <span className="block text-[#2863e8]">
+                    <span className="block text-[#1F65ED]">
                       1-Visa: AED {fz.oneVisaAed.toLocaleString()}
                     </span>
                   </div>
@@ -250,7 +250,7 @@ export function SubPageViews({
                 <ul className="mt-4 divide-y divide-[#E2E8F0]">
                   {fz.highlights.map((h) => (
                     <li key={h} className="py-2.5 flex items-start gap-2.5 text-sm text-[#1E293B]">
-                      <span className="mt-0.5 w-4 h-4 rounded bg-[#2863e8] text-white flex items-center justify-center shrink-0">
+                      <span className="mt-0.5 w-4 h-4 rounded bg-[#1F65ED] text-white flex items-center justify-center shrink-0">
                         <Check className="w-3 h-3" />
                       </span>
                       <span>{h}</span>
@@ -263,27 +263,27 @@ export function SubPageViews({
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="bg-white border border-[#E2E8F0] rounded-xl p-6">
-              <h3 className="text-lg font-bold text-[#0b1f4b] pb-3 border-b border-[#E2E8F0]">
+              <h3 className="text-lg font-bold text-[#0C1A38] pb-3 border-b border-[#E2E8F0]">
                 Workspace & Office Rates
               </h3>
               <ul className="divide-y divide-[#E2E8F0]">
                 {WORKSPACE_RATE_SCHEDULE.map((w) => (
                   <li key={w.tier} className="py-3 flex justify-between text-sm">
-                    <span className="text-[#0b1f4b] font-medium">{w.tier}</span>
-                    <span className="font-mono font-bold text-[#2863e8] tabular-nums">{w.rateAed}</span>
+                    <span className="text-[#0C1A38] font-medium">{w.tier}</span>
+                    <span className="font-mono font-bold text-[#1F65ED] tabular-nums">{w.rateAed}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="bg-white border border-[#E2E8F0] rounded-xl p-6">
-              <h3 className="text-lg font-bold text-[#0b1f4b] pb-3 border-b border-[#E2E8F0]">
+              <h3 className="text-lg font-bold text-[#0C1A38] pb-3 border-b border-[#E2E8F0]">
                 Visa & Permit Rates
               </h3>
               <ul className="divide-y divide-[#E2E8F0]">
                 {VISA_PERMIT_RATE_SCHEDULE.map((v) => (
                   <li key={v.item} className="py-3 flex justify-between text-sm">
-                    <span className="text-[#0b1f4b] font-medium">{v.item}</span>
-                    <span className="font-mono font-bold text-[#2863e8] tabular-nums">{v.rateAed}</span>
+                    <span className="text-[#0C1A38] font-medium">{v.item}</span>
+                    <span className="font-mono font-bold text-[#1F65ED] tabular-nums">{v.rateAed}</span>
                   </li>
                 ))}
               </ul>
@@ -305,9 +305,9 @@ export function SubPageViews({
     ];
 
     return (
-      <section className="py-14 bg-[#F4F7FC] min-h-[75vh]">
+      <section className="py-14 bg-[#F8FAFC] min-h-[75vh]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div className="bg-[#0b1f4b] text-white rounded-xl p-8 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="bg-[#0C1A38] text-white rounded-xl p-8 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
               <p className="text-xs font-bold uppercase tracking-wider text-[#93C5FD]">
                 Dubai Department of Economy & Tourism (DET)
@@ -324,7 +324,7 @@ export function SubPageViews({
               <ul className="mt-6 space-y-2.5">
                 {mainlandAdvantages.map((adv) => (
                   <li key={adv} className="flex items-start gap-2.5 text-sm text-[#CBD5E1]">
-                    <span className="mt-0.5 w-5 h-5 rounded bg-[#2863e8] text-white flex items-center justify-center shrink-0">
+                    <span className="mt-0.5 w-5 h-5 rounded bg-[#1F65ED] text-white flex items-center justify-center shrink-0">
                       <Check className="w-3.5 h-3.5" />
                     </span>
                     <span>{adv}</span>
@@ -352,9 +352,9 @@ export function SubPageViews({
     ];
 
     return (
-      <section className="py-14 bg-[#F4F7FC] min-h-[75vh]">
+      <section className="py-14 bg-[#F8FAFC] min-h-[75vh]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div className="bg-[#0b1f4b] text-white rounded-xl p-8 sm:p-10">
+          <div className="bg-[#0C1A38] text-white rounded-xl p-8 sm:p-10">
             <p className="text-xs font-bold uppercase tracking-wider text-[#93C5FD]">
               UAE Corporate Banking Desk
             </p>
@@ -370,15 +370,15 @@ export function SubPageViews({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {BANKING_PARTNERS.map((bank) => (
               <div key={bank.name} className="bg-white border border-[#E2E8F0] rounded-xl p-6">
-                <p className="text-xs font-bold text-[#2863e8]">{bank.category}</p>
-                <h2 className="text-xl font-bold text-[#0b1f4b] mt-1">{bank.name}</h2>
+                <p className="text-xs font-bold text-[#1F65ED]">{bank.category}</p>
+                <h2 className="text-xl font-bold text-[#0C1A38] mt-1">{bank.name}</h2>
                 <p className="font-mono text-xs text-[#475569] mt-1 tabular-nums">
                   {bank.timeline} · {bank.minBalance}
                 </p>
                 <ul className="mt-4 divide-y divide-[#E2E8F0]">
                   {bank.criteria.map((c) => (
                     <li key={c} className="py-2.5 flex items-start gap-2.5 text-sm text-[#1E293B]">
-                      <span className="mt-0.5 w-4 h-4 rounded bg-[#2863e8] text-white flex items-center justify-center shrink-0">
+                      <span className="mt-0.5 w-4 h-4 rounded bg-[#1F65ED] text-white flex items-center justify-center shrink-0">
                         <Check className="w-3 h-3" />
                       </span>
                       <span>{c}</span>
@@ -390,13 +390,13 @@ export function SubPageViews({
           </div>
 
           <div className="bg-white border border-[#E2E8F0] rounded-xl p-6 sm:p-8">
-            <h3 className="text-xl font-bold text-[#0b1f4b]">
+            <h3 className="text-xl font-bold text-[#0C1A38]">
               Mandatory Pre-Submission KYC Document Pack
             </h3>
             <ul className="mt-4 divide-y divide-[#E2E8F0]">
               {kycChecklist.map((item) => (
                 <li key={item} className="py-3 flex items-start gap-3 text-sm text-[#1E293B]">
-                  <span className="mt-0.5 w-5 h-5 rounded-md bg-[#2863e8] text-white flex items-center justify-center shrink-0">
+                  <span className="mt-0.5 w-5 h-5 rounded-md bg-[#1F65ED] text-white flex items-center justify-center shrink-0">
                     <Check className="w-3.5 h-3.5" />
                   </span>
                   <span>{item}</span>
@@ -412,22 +412,22 @@ export function SubPageViews({
   // Dynamic CMS Menu Page Fallback
   const cmsPage = navItems.find((n) => n.slug === slug);
   return (
-    <section className="py-14 bg-[#F4F7FC] min-h-[70vh]">
+    <section className="py-14 bg-[#F8FAFC] min-h-[70vh]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <button
           type="button"
           onClick={() => onNavigate('home')}
-          className="inline-flex items-center gap-1.5 text-sm font-bold text-[#2863e8] hover:text-[#0b1f4b] mb-6"
+          className="inline-flex items-center gap-1.5 text-sm font-bold text-[#1F65ED] hover:text-[#0C1A38] mb-6"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to Home</span>
         </button>
 
         <div className="bg-white border border-[#E2E8F0] rounded-xl p-8 sm:p-10">
-          <p className="text-xs font-bold uppercase tracking-wider text-[#2863e8]">
+          <p className="text-xs font-bold uppercase tracking-wider text-[#1F65ED]">
             {config.siteName}
           </p>
-          <h1 className="text-3xl font-bold text-[#0b1f4b] mt-2">
+          <h1 className="text-3xl font-bold text-[#0C1A38] mt-2">
             {cmsPage?.title || 'Corporate Advisory'}
           </h1>
           <p className="text-sm text-[#475569] mt-2 pb-6 border-b border-[#E2E8F0]">

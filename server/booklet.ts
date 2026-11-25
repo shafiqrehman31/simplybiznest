@@ -2,9 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import PDFDocument from 'pdfkit';
 
-const NAVY = '#0b1f4b';
-const COBALT = '#2863e8';
-const ICE = '#F4F7FC';
+const NAVY = '#0C1A38';
+const COBALT = '#1F65ED';
+const ICE = '#F8FAFC';
 const HAIRLINE = '#E2E8F0';
 const INK = '#1E293B';
 const MUTED = '#475569';
@@ -234,9 +234,9 @@ function drawBulletList(
 
 export function generateProposalBookletPdf(pricing: BookletPricing = {}): Promise<Buffer> {
   return new Promise((resolve, reject) => {
-    const zeroVisa = pricing.zeroVisaPriceAed ?? 11500;
-    const oneVisa = pricing.oneVisaPriceAed ?? 17900;
-    const mainland = pricing.mainlandPriceAed ?? 23500;
+    const zeroVisa = pricing.zeroVisaPriceAed ?? 6499;
+    const oneVisa = pricing.oneVisaPriceAed ?? 11200;
+    const mainland = pricing.mainlandPriceAed ?? 11800;
 
     const logoCandidate = path.resolve(
       process.cwd(),
@@ -568,7 +568,7 @@ export function generateProposalBookletPdf(pricing: BookletPricing = {}): Promis
         ['IFZA Dubai', 'Combine up to 3 activities; rapid issue', 'From AED 12,900'],
         ['Meydan Free Zone', 'Prime Dubai address; 2,500+ codes', 'From AED 12,500'],
         ['DMCC (JLT Dubai)', 'Commodities, treasury & Web3 hub', 'From AED 20,500'],
-        ['RAKEZ', 'Cost-efficient remote founder hub', 'From AED 11,500'],
+        ['RAKEZ / Northern Express', 'Cost-efficient remote founder hub', 'From AED 6,499'],
         ['ADGM (Abu Dhabi)', 'Common-law holding & SPV hub', 'Custom Mandate'],
       ],
       fonts
