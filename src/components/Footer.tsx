@@ -77,8 +77,7 @@ export function Footer({ config, navItems, onNavigate, onJumpToSection }: Footer
               className="h-24 sm:h-28 w-auto max-w-[260px] object-contain"
             />
             <p className="mt-4 text-sm text-[#CBD5E1] leading-relaxed">
-              SimplyBizNest VIP Express Desk for UAE Free Zone and Dubai Mainland DET company
-              formation, transparent government-vs-service fee splits, and KYC banking readiness.
+              SimplyBizNest VIP Express Desk for UAE Free Zone and Dubai Mainland DET company formation, transparent government-vs-service fee splits, and KYC banking readiness. yeh hatado footer se
             </p>
             <ul className="mt-5 flex flex-wrap items-center gap-2.5" aria-label="Social Media Channels">
               {activeSocials.map((ch) => (
